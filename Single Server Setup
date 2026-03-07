@@ -1,0 +1,50 @@
+Build a System  that aupport 
+
+               move to 
+single user ------------->  millions of users
+
+Domain Name :- www.leetcode.com
+IP Address :- 15.125.23.214
+
+            DNA(Domain name system)
+The DNS server translates the domain name into the corresponding IP address
+api.mysite.com  -----> DNS Server
+                      |
+                      V
+                15.125.23.214
+
+
+ -----------------------------------
+| User                              |       api.mysite.com              
+|                                   |     ---------------------->    |-----------|
+|   web browser       Mobile app    |                                |    DNS    |
+|                                   |     <------------------------  |-----------|         
+|                                   |       15.125.23.214
+-------------------------------------
+      
+-----------------------------------
+|                                 |
+|          web server             |      
+|                                 |
+-----------------------------------
+
+
+
+TRAFFIC:- no.of rquest server/Traffic refers to the number of requests received by the server
+Web application  
+Moblie App
+
+web Application:-----------> server side language(Java, python etc)
+                                         +
+                            client side lanquage(HTML, JS)
+
+Mobole App :--------->   HTTP protocal  withserver
+                        API rsponse = JSON
+
+
+for example:-------------> GET  /user/ 12
+                        {
+                          "Name" : "XYZ"
+                          "Age"  :  "30"
+                          "Gender" : "Male" or"Female"
+                       }
