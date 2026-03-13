@@ -1,0 +1,36 @@
+which database to use?
+
+1) Relational Database
+2) Non-Relation Databse
+
+Relational DB                   |                       Non-Relation DB
+--------------------------------------------------------------------------
+- RDBMS                         |- NoSQL Databases
+ (Relational Database           |-example:-
+   Management System)           | Cassandra, Amazon Dynamo DB
+          or                    |etc.
+    SQL Database                |
+                                |-Grouped into 4 categories:-
+-Represent and store            |     .Graph stores
+  data in tables & rows         |     .Key-value stores
+                                |     .column stores
+                                |     .Documnet stores
+-can perform JOIN operations    |-JOIN operation
+using SQL on different tables   |not supported
+                                |
+
+which database to use?
+.)For most developers - Relatonal DB
+.)But, there or many cases in which Relational DB is not suitable
+
+
+When to think about non-relational DB?
+-Your application requires super low latency.
+-When your data is unstructured.
+-You only need to serialize data(JSON, XML, YAML, etc).
+-When you need to store Massive amount of data.
+
+
+
+
+
