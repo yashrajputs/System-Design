@@ -1,0 +1,28 @@
+Sever-1  -------------------Scale----------------  Server-2
+Traffic                                            Database
+(from wed apps,moblie apps)
+
+
+
+
+ 
+|-----------------------------------|       api.mysite.com              
+|  User                             |     ---------------------->    |-----------|
+|   web browser       Mobile app    |                                |    DNS    |
+|                                   |     <------------------------  |-----------|         
+|-----------------------------------|                                       15.125.23.214
+
+      
+
+|---------------------------------|  read/write/update        |---------------------------------|                              
+|          web server             |------------------------>  |          Database               | 
+|---------------------------------|<------------------------  |---------------------------------| 
+                                         return data                
+
+User → DNS → Web Server → Database → Web Server → User
+
+Benefits:
+Web server handles requests
+Database server handles data storage
+Better performance
+
