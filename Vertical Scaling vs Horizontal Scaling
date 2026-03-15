@@ -1,0 +1,65 @@
+Vertical Scaling
+|
+|------------>Scale-up
+|----------->Adding more power to your servers.
+|-------->Example:- CPU, RAM
+|
+            Users
+              |
+              |
+        +-------------+
+        |   Server    |
+        |-------------|
+        | CPU ↑       |
+        | RAM ↑       |
+        | Storage ↑   |
+        +-------------+
+              |
+              |
+           Database
+
+
+-------------------------------------------------------------------------
+Horizontal Scaling
+|
+|--------------->Scale-out
+|------------>Adding more servers
+|---------------------------------->In horizontal scaling, multiple servers handle traffic using a load balancer
+                 Users
+                   |
+                   |
+            +--------------+
+            | Load Balancer|
+            +--------------+
+             /      |      \
+            /       |       \
+     +---------+ +---------+ +---------+
+     | Server1 | | Server2 | | Server3 |
+     +---------+ +---------+ +---------+
+          |           |           |
+          -----------Database------
+
+
+
+
+----------------------------------------------------------------------------------------
+
+Vertical Scaling       |     Horizontal Scaling
+-----------------      |     ---------------------------
+When traffic is low    |     For large Scale applications.
+                       |
+                       |
+Simplicity is its      |     Huge traffic
+advantage              |
+                       | 
+
+------------------------------------------------------------------
+Limitation of Vertical Scaling:-
+
+1.Impossible to add unlimited CPU and RAM to single server.
+
+2.No Backup (failover). If one server goes down, the website/ service goes down completely.
+
+
+*That's why, for larg scale applications. Horizontal Scaling is perferred due to limitions of vertical Scaling.
+
