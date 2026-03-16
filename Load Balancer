@@ -1,0 +1,41 @@
+Users
+  |
+  |
+  v
++-------------+
+|  Web Server |
++-------------+
+
+
+Users connected directly
+When server is offline
+Also, when many users access at the same time
+- web server load limit
+- Slow response
+- Fail to connect
+
+          "Load Balancer "
+-Evenly distribute web traffic
+-Users connect to load Balancer via Public IP
+
+- Load Balancer communicate with web server via Private IP
+
+    " Load Balancer + 2nd Web srever "
+-No failover
+-Improved availavbility
+
+Add a Load Balancer:-
+
+A Load Balancer distributes incoming traffic across multiple servers
+            Public IP
+Users  -------------------->
+                         +----------------+
+                         |  Load Balancer |
+                         +----------------+
+                            |          |
+                            |          |
+                      Private IP   Private IP
+                          |            |
+                   +-----------+  +-----------+
+                   | WebServer1|  | WebServer2|
+                   +-----------+  +-----------+
