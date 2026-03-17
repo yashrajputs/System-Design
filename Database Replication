@@ -1,0 +1,61 @@
+When Database server fails?
+
+DB Replication:
+- Mater -> original DB
+- Slave -> copy (replica)
+
+Master-Slave Replication:-
+       Master
+      /  |   \
+   Slave Slave Slave
+------------------------------------------------------------------------------------------------
+
+        Mater                                                 Slave
+---------------------------                            --------------------
+- only write opertions                                    - Read opertions
+- insert, delete, update                                  - Gets copies of data form master.
+(data-modifying commands)
+
+--------------------------------------------------------------------------------------------------
+- Most applications  = read/writes  ] high ratio
+    # slaves > # master
+
+-------------------------------------------------------------------------------------------------
+Advantages of DB Replication:-
+1.Better performance:-
+- Reads distributed across slaves
+- Faster response time
+
+2.Reliability:-
+- Data is copied to multiple servers
+- Less risk of data loss
+
+3.Hight Availabity:-
+- System keeps running even if one DB fails
+
+------------------------------------------------------------------------------------------------------------
+    Full System Architecture (With Load Balancer + DB Replication)
+                  
+                Users (Web / Mobile)
+                          |
+                          ▼
+                 🌐 Load Balancer
+                          |
+        -----------------------------------
+        |                                 |
+        ▼                                 ▼
+   Web Server 1                     Web Server 2
+        |                                 |
+        ----------- API Layer -------------
+                          |
+                          ▼
+                  🧠 Application Logic
+                          |
+        -----------------------------------
+        |                                 |
+        ▼                                 ▼
+   🟢 Master DB                     🔵 Slave DB 1
+   (Write Operations)              (Read Operations)
+        |                                 |
+        |-----------------------> 🔵 Slave DB 2
+                 (Replication)
