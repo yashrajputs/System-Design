@@ -1,0 +1,60 @@
+- Temporary storage
+- stores
+    - Results of expensive responses
+    - Frequently accessed data
+
+ we can server request more  quickly
+
+Don't call me repeatally
+
+
+
+          | <----------|
+Webserver | <----------|Cache <---------- DB
+          |            |
+                
+                 Read-through cache
+
+Interacting with cache:-
+-simple
+-cache servers provide APIs
+
+
+Things to consider for using CACHE?
+-Data read frequently + modified infrequently
+ Expiration Policy:
+  - Not too low = Data reload from DB
+  - Not too high - state Data
+
+1.Consistency: Between DB & Cache
+2.Mutiple cache servers across different data centers to avoid SOPE---------> (single Point Of Failure)
+
+3.Evication Policy:- when cache gets full.
+      ->LRU
+      ->LFU
+      ->FIFO
+LRU (Least Recently Used) → removes unused items
+LFU (Least Frequently Used) → removes least accessed
+FIFO (First In First Out) → removes oldest
+
+
+Why Cache?
+✔ Faster response time
+✔ Reduced DB load
+✔ Better scalability
+✔ Handles high traffic easily
+
+                                   Real-World Architecture:
+                   User → Load Balancer → Web Server → Cache → Database
+
+
+Advanced Architecture (Used in Big Systems):-
+
+                ┌──────────────┐
+User → LB → Web →  Cache Layer  → DB
+                │ (Redis Cluster) │
+                └──────┬───────┘
+                       ↓
+                Multiple Cache Nodes
+
+
