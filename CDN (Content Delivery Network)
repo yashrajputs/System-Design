@@ -1,0 +1,64 @@
+                                    CDN (Content Delivery Network)
+A CDN (Content Delivery Network) is a network of distributed servers that deliver content faster to users based on their geographical location.
+
+                 Website:--
+Static contents(images, videos, CSS, JS etc.)
+User → CDN → Image/JS → Response (FAST)
+
+Dynamic contents(change according to user input)
+User → CDN → Load Balancer → Server → Cache → DB → Response
+
+
+Example:- website for selling e-book
+
+How CDN works (high-level view):-
+. User visits a website
+. CDN srever closest to user - static content
+. CDN server = slow website loading
+
+
+Things to consider for using CDN:-
+. Cost - Get rid of infrequently used contents.
+. Expiry time - Not to low, No too high
+. CDN fallback/backup- Back up when CDN fails
+.  Invalidating files- API(CDN vendors)
+                     - versioning (example :- image.png? v =2)
+
+
+Full Web Architecture (CDN + Load Balancer + Server + DB)
+                 Users (Web / Mobile)
+                        |
+                        ▼
+                 ┌───────────────┐
+                 │      DNS      │
+                 └───────────────┘
+                        |
+                        ▼
+              ┌────────────────────┐
+              │        CDN         │
+              │ (Edge Servers)     │
+              └────────────────────┘
+                  |            |
+     (Static Hit) |            | (Cache Miss)
+                  ▼            ▼
+              Return Fas    ┌───────────────┐
+                            │ Load Balancer │
+                            └───────────────┘
+                                    |
+                    ┌───────────────┼───────────────┐
+                    ▼               ▼               ▼
+              ┌──────────┐   ┌──────────┐   ┌──────────┐
+              │ Web/App  │   │ Web/App  │   │ Web/App  │
+              │ Server 1 │   │ Server 2 │   │ Server 3 │
+              └──────────┘   └──────────┘   └──────────┘
+                    |
+                    ▼
+              ┌───────────────┐
+              │     Cache     │ (Redis / Memcached)
+              └───────────────┘
+                    |
+                    ▼
+              ┌───────────────┐
+              │   Database    │
+              │ (Master/Slave)│
+              └───────────────┘
