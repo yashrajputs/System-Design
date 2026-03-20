@@ -1,0 +1,100 @@
+                                          Stateful & Stateless Architecture
+
+
+Session Data/State:- Data that represents user's session on wed.
+                         -> Indentify a user
+                         -> Authenticate the user
+
+User->A
+                   web-server-1
+                    state info. of user-A
+-----------------------------------------------------------------
+User->B     
+               web-server-2
+               state-info of user-B
+
+
+Stateless Web                                   Stateful web
+- Does not remember client data                 - Remember client data.
+- Does not store state information              - stores state information
+- Simple, robust                                - overhead, not simple
+
+Disadvantages:
+
+❌ Hard to scale (needs sticky sessions)
+
+❌ Server dependency
+
+❌ Failures lose session
+
+❌ Load balancer complexity
+
+✅ Advantages:
+
+✅ Faster (no need to fetch session repeatedly)
+
+✅ Simple logic (session already available)
+
+                              
+1. Stateful Architecture (With Load Balancer):-
+            Users
+             |
+        Load Balancer
+         /        \
+   Web Server 1   Web Server 2
+   (User A state) (User B state)
+
+Load balancer must send the same user to same server
+
+
+2. Stateless Architecture (Modern Approach):-
+              Users
+                |
+          Load Balancer
+        /      |      \
+   Server1  Server2  Server3
+        \      |      /
+          Shared Cache / DB
+
+How it works:
+
+Any request → Any server
+
+No session stored in server
+
+Data stored in:
+
+- Cache (Redis)
+
+- Database
+
+Benefits:
+
+->Easy scaling 
+
+->Fault tolerant
+
+->No sticky session needed
+
+
+Complete Architecture Diagram:-
+
+
+                Users (Browser / App)
+                        |
+                        DNS
+                        |
+                       CDN
+                        |
+                 Load Balancer
+                  /    |    \
+            Server1 Server2 Server3
+                  \    |    /
+                     Cache
+                       |
+                    Database
+                       |
+                  File Storage
+                       |
+                External APIs
+
