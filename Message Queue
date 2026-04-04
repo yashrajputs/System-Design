@@ -1,0 +1,94 @@
+Modern architectures:
+
+           Application--------------->[ ]
+           |     \    \
+           |      \    \
+           |       \    \                             (Smaller independent building blocks)
+           |        \   [ ]                                      (Decopule in smalle part)
+          [ ]       [ ]   
+
+Easier to:- Develop, Deploy, Maintain
+
+Message Queues provide communication and co-ordination for them.
+
+
+Message Queue:-
+. Support Asynchronous communication.
+
+producer-----> Message -----------> consumer
+
+1. producer can  produce a message to queue even when consumer is unavaiable.
+
+2. Consumer can read message from queue even when producer is unavailable.
+
+
+Producer----->cConsumer
+-->Independent
+-->Scalled Indendently
+-->Queue size large, add more consumers/ workers
+-->If Queue is empty mostly reduce consumer/ workers
+-------------------------------------------------------------------------------*******************----------------------------------------------------------------------------------------------------
+📩 Message Queue (Clean Explanation)
+🔹 What is a Message Queue?
+
+A Message Queue is a communication mechanism used in modern distributed systems that enables asynchronous communication between different components (services).
+
+Instead of services talking directly, they communicate via a queue.
+
+🏗️ Modern Architecture (Microservices Style)
+Applications are broken into smaller independent services
+Each service handles a specific task
+These services are loosely coupled (decoupled)
+
+👉 Benefits:
+
+Easier to Develop
+Easier to Deploy
+Easier to Maintain
+Better Scalability
+🔁 How Message Queue Works
+Producer  --->  Message Queue  --->  Consumer
+Producer → Sends messages
+Queue → Stores messages temporarily
+Consumer → Reads & processes messages
+⚡ Key Feature: Asynchronous Communication
+Producer and consumer do NOT need to interact at the same time
+✔ Example:
+Producer sends order data → Queue stores it
+Consumer processes order later
+🔑 Important Properties
+1. Independence
+Producer and consumer are independent
+They don’t need to know about each other
+2. Fault Tolerance
+Producer can send messages even if consumer is down
+Consumer can process messages even if producer is offline
+3. Scalability
+If queue size increases → Add more consumers (workers)
+If queue is mostly empty → Reduce consumers
+
+👉 This is called horizontal scaling
+
+4. Load Balancing
+Multiple consumers can process messages
+Work is distributed automatically
+🔄 Real-Life Example
+
+Think of it like a food delivery system:
+
+Customer places order → (Producer)
+Restaurant queue → (Message Queue)
+Delivery agents pick orders → (Consumers)
+
+Even if delivery agents are busy, orders are safely stored.
+
+🧠 Popular Message Queue Systems
+RabbitMQ
+Apache Kafka
+Amazon SQS
+📌 Summary (Short Notes)
+Enables asynchronous communication
+Decouples services
+Improves scalability & reliability
+Supports independent scaling
+Helps in load balancing & fault tolerance
