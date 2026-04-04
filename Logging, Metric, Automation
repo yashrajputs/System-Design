@@ -1,0 +1,99 @@
+                                               Logging, Metrics & Automation (Simplified)
+     “Logging, metrics, and automation together form the foundation of observability and scalability in modern distributed systems.”
+ Why this matters
+Small systems → can survive without much monitoring
+Large-scale systems → impossible to manage without it
+
+ As systems grow:
+
+More servers
+More users
+More failures
+
+You need visibility + control
+
+1. LOGGING
+
+Definition
+
+Logging = recording events/errors happening inside the system
+
+ Your notes explained:
+Monitoring error logs
+→ Track failures, exceptions, crashes
+Per server level
+→ Each server generates its own logs
+Centralized logging
+→ Combine all logs into one place
+ Real-world tools:
+ELK Stack (Elasticsearch + Logstash + Kibana)
+New Relic
+Splunk
+
+2. METRICS
+Definition
+
+Metrics = numerical data about system performance
+
+ Types (from your notes)
+1️⃣ Host-level metrics
+CPU usage
+Memory usage
+Disk I/O
+
+ “Is my server healthy?”
+
+2️⃣ Aggregated metrics
+DB performance
+Cache hit rate
+API latency
+
+ “Is my system efficient?”
+
+Business metrics
+Daily Active Users (DAU)
+Revenue
+Conversions
+
+ “Is my business growing?”
+
+ Tools:
+Grafana
+Prometheus
+Datadog
+ Example
+CPU = 95% 
+→ Server overloaded
+→ Scale system
+
+3. AUTOMATION
+Definition
+
+Automation = using tools to perform tasks automatically
+
+📌 From your notes:
+✔ When needed
+When system becomes big & complex
+✔ Continuous Integration (CI)
+Code is automatically:
+Built
+Tested
+Verified
+
+👉 Every commit is checked
+
+✔ Automating:
+Builds
+Testing
+Deployment
+🧩 Tools:
+Jenkins
+GitHub Actions
+GitLab CI/CD
+💡 Example
+
+Developer pushes code →
+
+Tests run automatically
+Build created
+Deployed to server
