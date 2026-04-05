@@ -1,0 +1,117 @@
+
+
+Data grows ---> Database Overloaded -----> Scale your Database Servers
+
+
+Database Scaling :- 1) Vertical Scaling
+                    2) Horizontal Scaling(sharding)
+
+Vertical Scaling:- More power(CPU, Ram, Disk etc)
+                  - RDS (Amazon Relational DB service)
+                      24TB of RAM
+
+Horizontal Scaling:- Sharding (Adding more servers)
+    Large DB--> shard 1, shard 2, shard 3, shard 4 } shards smaller & easy management
+
+- Hash function helps to assign shard
+
+example:- user-id % 4
+
+. Resharding:- when a shard can no longer hold more.
+              - shard exhaustion due to uneven distribution.
+               - It will require updating sharding function, then move data around.
+
+Celebrity Problem(Hotspot key problem)
+     - Excessive access to a particular shard cause shard overload.
+- Assign one celebrity to each should.
+-
+-sharding makes it difficult to perform JOIN operations
+common fix:- Denormalize the database so that quries can be done in a single table.
+
+
+
+                                          📊 Database Scaling (Clean Notes + Diagram)
+🔹 Basic Concept
+Data Growth  ───▶  Database Overloaded  ───▶  Need Scaling
+🔹 Types of Database Scaling
+                 Database Scaling
+                        │
+        ┌───────────────┴───────────────┐
+        │                               │
+ Vertical Scaling               Horizontal Scaling
+   (Scale Up)                      (Scale Out)
+🔹 1. Vertical Scaling (Scale Up)
+✔ Concept:
+
+Increase power of a single server
+
+Before Scaling:
+   [ DB Server ]
+
+After Scaling:
+   [ DB Server ]
+   (More CPU + RAM + Storage)
+✔ Key Points:
+Add CPU, RAM, Disk
+Simple to implement
+Limited by hardware
+✔ Example:
+Amazon RDS
+Supports very high configurations (e.g., ~24TB RAM)
+🔹 2. Horizontal Scaling (Sharding)
+✔ Concept:
+
+Split database into multiple smaller servers (shards)
+
+        Large Database
+               │
+   ┌───────────┼───────────┐
+   │           │           │
+[Shard 1]  [Shard 2]  [Shard 3]  [Shard 4]
+✔ Benefits:
+Better performance
+Easier management
+Scales infinitely
+🔹 Sharding Logic
+✔ Using Hash Function:
+Shard Number = UserID % N
+
+Example:
+UserID % 4
+
+0 → Shard 1
+1 → Shard 2
+2 → Shard 3
+3 → Shard 4
+🔹 Resharding
+✔ When Needed:
+Data grows unevenly
+One shard becomes full (Shard Exhaustion)
+✔ Process:
+Old Shards → Update Hash Function → Move Data → New Shards
+✔ Challenges:
+Data migration is complex
+Downtime risk
+Rebalancing required
+🔥 Hotspot / Celebrity Problem
+✔ Problem:
+One shard receives too much traffic
+      Users
+        │
+        ▼
+   [Shard 2]  ← Overloaded (Celebrity)
+✔ Cause:
+Popular user / item (e.g., celebrity account)
+✔ Solutions:
+Distribute load across shards
+Replicate hotspot data
+Cache frequently accessed data
+⚠️ Limitation of Sharding
+❌ JOIN Operations become difficult
+Shard 1   +   Shard 2   ❌ Complex JOIN
+✔ Solution:
+
+👉 Denormalization
+
+Store related data in same table
+Avoid cross-shard queries
