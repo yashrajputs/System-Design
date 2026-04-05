@@ -189,3 +189,7 @@
 
 <text x="340" y="810" text-anchor="middle" fill="var(--color-text-secondary)" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Click any node to explore further ↗</text>
 </svg>
+
+
+<img width="1024" height="1536" alt="Database scaling overview diagram" src="https://github.com/user-attachments/assets/63063432-cf89-4c94-b96b-292a3368bd9a" />
+
