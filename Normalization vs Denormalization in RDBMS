@@ -1,0 +1,116 @@
+Normalization:
+-Breaking down large table into smaller,  related table and establishing relationships between them.
+-Minimize redundancy,simplify.
+- Don't do over normaliztion.
+
+Table(T)--->T1, T2
+
+ //Alias
+
+
+
+Denormalization:
+- Deliberately introducing redundancy into a database table.
+- Opposite of Normaliztion.
+
+T1, T2----> (T) Table
+
+1) Improved query performance.(No joins)
+2) Simplified query.
+3) Reduce joins.
+4) Read intensive scenarios -> Best
+
+Cons of Denormalization:-
+- Redundancy -> memory waste.
+- Inconsistent Data (Suppose you forgot to update departmentlocation of HR in some rows)
+- Update/ Write opertion - > Externely slow because you will have to update in  multiple places (redundant)
+
+
+
+
+                                        📚 Database Normalization vs Denormalization
+🔹 Normalization
+
+Definition:
+Normalization is the process of breaking a large table into smaller, related tables and establishing relationships between them to reduce redundancy.
+
+🎯 Goals:
+Minimize redundancy
+Avoid data inconsistency
+Improve data integrity
+Simplify maintenance
+⚙️ Concept:
+Table (T)
+   ↓
+T1      T2      T3
+(related via keys)
+✅ Example:
+
+Before Normalization:
+
+| StudentID | Name | Course | Instructor |
+| --------- | ---- | ------ | ---------- |
+| 1         | Yash | DBMS   | A          |
+| 2         | Ram  | DBMS   | A          |
+
+
+👉 Instructor repeated → redundancy
+
+After Normalization:
+
+Student Table
+
+| StudentID | Name |
+| --------- | ---- |
+| 1         | Yash |
+| 2         | Ram  |
+
+
+Course Table
+
+Course	Instructor
+DBMS	A
+⚠️ Important:
+Avoid over-normalization (too many tables → complex joins)
+🔹 Denormalization
+
+Definition:
+Denormalization is the process of intentionally adding redundancy to improve read performance.
+
+⚙️ Concept:
+T1 + T2 + T3
+     ↓
+   Single Table (T)
+
+🎯 Why Use It?
+Improve query performance
+Reduce joins
+Faster data retrieval
+Best for read-heavy systems
+
+✅ Advantages:
+Faster queries (no joins needed)
+Simpler queries
+Better performance in read-intensive apps
+
+❌ Disadvantages:
+Redundancy → wastes memory
+Data inconsistency risk
+Slow updates/writes (update same data in multiple places)
+⚠️ Example Problem:
+
+If HR department location is stored in multiple rows:
+Update missed in one row → ❌ inconsistent data
+
+Quick Comparison Table
+| Feature        | Normalization ✅ | Denormalization ⚡ |
+| -------------- | --------------- | ----------------- |
+| Redundancy     | Low             | High              |
+| Data Integrity | High            | Medium/Low        |
+| Query Speed    | Slower (joins)  | Faster            |
+| Complexity     | More joins      | Simpler queries   |
+| Best Use Case  | OLTP systems    | OLAP / Read-heavy |
+
+🧠 Easy Memory Trick
+Normalization = Clean & Organized 🧹
+Denormalization = Fast but Messy ⚡
